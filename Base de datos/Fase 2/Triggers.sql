@@ -163,12 +163,12 @@ BEGIN
     SET PUNTOS = PUNTOS + v_resultado1
     WHERE ID_EQUIPO IN (v_equipo1, v_equipo2);
 
-    -- Si el equipo 1 ganó, se le suma una victoria
+    -- Si el equipo 1 ha ganado, se le suma una victoria
     IF v_resultado1 > v_resultado2 THEN
         UPDATE EQUIPO_COMPETICION
         SET VICTORIAS = VICTORIAS + 1
         WHERE ID_EQUIPO = v_equipo1;
-    -- Si el equipo 2 ganó, se le suma una victoria
+    -- Si el equipo 2 ha ganado, se le suma una victoria
     ELSIF v_resultado1 < v_resultado2 THEN
         UPDATE EQUIPO_COMPETICION
         SET VICTORIAS = VICTORIAS + 1
@@ -177,5 +177,5 @@ BEGIN
     
 EXCEPTION
     WHEN OTHERS THEN
-        DBMS_OUTPUT.PUT_LINE('Error al recuperar información.');
+        DBMS_OUTPUT.PUT_LINE('Error al recuperar informacion.');
 END;
